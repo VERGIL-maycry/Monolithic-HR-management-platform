@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16
+    container_name: hr-platform-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hr_platform
+      POSTGRES_USER: hr_platform
+      POSTGRES_PASSWORD: hr_platform
+    ports:
+      - "5432:5432"
+    volumes:
+      - hr-platform-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hr_platform -d hr_platform"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: ./backend
+    container_name: hr-platform-api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: postgres://hr_platform:hr_platform@db:5432/hr_platform
+      JWT_SECRET: change-this-secret-key-must-be-at-least-256-bits-long-for-hs256
+      APP_CORS_ALLOWED_ORIGIN_PATTERNS: http://localhost:5173,https://*.vercel.app
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  hr-platform-pgdata:

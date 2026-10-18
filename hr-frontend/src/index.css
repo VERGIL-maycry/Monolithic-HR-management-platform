@@ -1,0 +1,101 @@
+/* ── ALTEN Brand Palette ── */
+:root {
+  /* ALTEN signature colors */
+  --alten-red:    #E30613;
+  --alten-yellow: #FFD700;
+  --alten-blue:   #009FE3;
+  --alten-black:  #1A1A1A;
+
+  /* Semantic aliases */
+  --text:         #52525b;
+  --text-h:       #18181b;
+  --bg:           #f6f7f9;
+  --surface:      #ffffff;
+  --border:       #e4e4e7;
+  --border-soft:  #eef0f2;
+  --code-bg:      #f4f4f0;
+
+  /* Accent = ALTEN red */
+  --accent:        var(--alten-red);
+  --accent-bg:     rgba(227, 6, 19, 0.08);
+  --accent-border: rgba(227, 6, 19, 0.35);
+
+  --social-bg: rgba(244, 244, 240, 0.5);
+  --shadow-sm:
+    0 1px 2px rgba(24, 24, 27, 0.05), 0 1px 3px rgba(24, 24, 27, 0.06);
+  --shadow-md:
+    0 4px 12px rgba(24, 24, 27, 0.07), 0 2px 4px rgba(24, 24, 27, 0.05);
+  --shadow-lg:
+    0 10px 30px rgba(24, 24, 27, 0.1), 0 4px 8px rgba(24, 24, 27, 0.06);
+  --shadow: var(--shadow-md);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  --green:   #16a34a;
+  --blue-dk: #0078b0;
+
+  --sans:    system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono:    ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  text-align: left;
+}
+
+body { margin: 0; }
+
+h1, h2 {
+  font-family: var(--heading);
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 28px;
+  letter-spacing: -0.4px;
+  margin: 0 0 16px;
+}
+
+.icon { flex-shrink: 0; opacity: 0.85; }
+
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) { font-size: 20px; }
+}
+
+p { margin: 0; }
+
+code, .counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}

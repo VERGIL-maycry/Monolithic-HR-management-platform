@@ -1,0 +1,9 @@
+{
+  "installCommand": "npm install --prefix hr-frontend",
+  "buildCommand": "npm run build --prefix hr-frontend",
+  "outputDirectory": "hr-frontend/dist",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}
